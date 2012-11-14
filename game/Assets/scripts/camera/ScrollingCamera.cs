@@ -54,8 +54,8 @@ public class ScrollingCamera : MonoBehaviour {
 		// How much should we zoom the camera based on this target?
 		float distanceModifier = 1.0f;
 		// By default, we won't account for any target velocity in our calculations;
-		float velocityLookAhead = 3.0f;
-		Vector2 maxLookAhead = new Vector2 (1.0f, 0.0f);
+		float velocityLookAhead = 1.0f;
+		Vector2 maxLookAhead = new Vector2 (3.0f, 0.0f);
 		
 		// First do a rough goalPosition that simply follows the target at a certain relative height and distance.
 		Vector3 goalPosition = target.position + new Vector3 (0, heightOffset, -distance * distanceModifier);
