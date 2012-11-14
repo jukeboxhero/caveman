@@ -168,8 +168,11 @@ public class CavemanController : MonoBehaviour {
 	
 	
 	//helpers
-	bool IsTouchingCeiling () {
+	public bool IsTouchingCeiling () {
 		return (movement.collisionFlags & CollisionFlags.CollidedAbove) != 0;
+	}
+	public Vector3 GetVelocity () {
+		return movement.velocity;
 	}
 }
 
