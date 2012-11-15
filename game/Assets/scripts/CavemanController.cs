@@ -8,9 +8,28 @@ public class CavemanController : MonoBehaviour {
 	CharacterController controller;
 	// Does this script currently respond to Input?
 	public bool canControl = true;
+	
+	public Transform spawnPoint;
 		
 	void Awake(){
 		controller = gameObject.GetComponent ("CharacterController") as CharacterController;
+	}
+	
+	void Spawn () {
+		// reset the character's speed
+		movement.verticalSpeed = 0.0f;
+		movement.speed = 0.0f;
+		
+		// reset the character's position to the spawnPoint
+		transform.position = spawnPoint.position;
+		
+	}
+	
+	void OnDeath () {
+		var camera = GameObject.Find("Main Camera");
+		var cameraScript = camera.GetComponent("ScrollingCamera") as ScrollingCamera;
+		cameraScript.Stop();
+		//Spawn ();
 	}
 	
 	// Use this for initialization

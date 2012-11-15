@@ -41,6 +41,10 @@ public class ScrollingCamera : MonoBehaviour {
 		}
 	}
 	
+	public void Stop(){
+		target=null;	
+	}
+	
 	Vector3 GetGoalPosition() {
 		if(!target){
 			return transform.position;	
@@ -76,7 +80,7 @@ public class ScrollingCamera : MonoBehaviour {
 		CavemanController targetCavemanController = target.gameObject.GetComponent ("CavemanController") as CavemanController;
 		if (targetCavemanController)
 			targetVelocity = targetCavemanController.GetVelocity ();
-		Debug.Log(targetVelocity);
+		
 		// If you've had a physics class, you may recall an equation similar to: position = velocity * time;
 		// Here we estimate what the target's position will be in velocityLookAhead seconds.
 		var lookAhead = targetVelocity * velocityLookAhead;
