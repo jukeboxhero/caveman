@@ -48,7 +48,6 @@
      <Compile Include="Assets\scripts\DeathTrigger.js" />
      <Compile Include="Assets\scripts\SpawnPoint.js" />
      <None Include="Assets\Standard Assets\Skyboxes\_skybox info.txt" />
-     <None Include="Assets\mike_test.txt" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

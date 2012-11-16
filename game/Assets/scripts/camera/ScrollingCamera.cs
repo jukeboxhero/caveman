@@ -29,7 +29,7 @@ public class ScrollingCamera : MonoBehaviour {
 		transform.position = Vector3.Lerp (transform.position, goalPosition, Time.deltaTime * springiness);	
 	}
 	
-	void SetTarget (Transform newTarget) {
+	public void SetTarget (Transform newTarget) {
 		target = newTarget;
 		
 		if (target) {

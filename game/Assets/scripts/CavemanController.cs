@@ -6,13 +6,18 @@ public class CavemanController : MonoBehaviour {
 	CavemanControllerMovement movement = new CavemanControllerMovement();
 	CavemanControllerJump jump = new CavemanControllerJump();
 	CharacterController controller;
+	ScrollingCamera camera;
+	Transform player;
 	// Does this script currently respond to Input?
-	public bool canControl = true;
 	
+	public bool canControl = true;
 	public Transform spawnPoint;
+	public float timeUntilRespawn = 0.5f;
+	
 		
 	void Awake(){
 		controller = gameObject.GetComponent ("CharacterController") as CharacterController;
+		player = GameObject.Find("Player").transform;
 	}
 	
 	void Spawn () {
@@ -22,19 +27,18 @@ public class CavemanController : MonoBehaviour {
 		
 		// reset the character's position to the spawnPoint
 		transform.position = spawnPoint.position;
-		
+		camera.SetTarget(player);
 	}
 	
-	void OnDeath () {
-		var camera = GameObject.Find("Main Camera");
-		var cameraScript = camera.GetComponent("ScrollingCamera") as ScrollingCamera;
-		cameraScript.Stop();
-		//Spawn ();
+	IEnumerator OnDeath () {
+		camera.Stop();
+		yield return new WaitForSeconds(timeUntilRespawn);
+		Spawn ();
 	}
 	
 	// Use this for initialization
 	void Start () {
-
+		camera = GameObject.Find("Main Camera").GetComponent("ScrollingCamera") as ScrollingCamera;
 	}
 	
 	void FixedUpdate () {
