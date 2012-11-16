@@ -3,8 +3,8 @@ using System.Collections;
 
 public class CavemanController : MonoBehaviour {
 	
-	CavemanControllerMovement movement = new CavemanControllerMovement();
-	CavemanControllerJump jump = new CavemanControllerJump();
+	public CavemanControllerMovement movement = new CavemanControllerMovement();
+	public CavemanControllerJump jump = new CavemanControllerJump();
 	CharacterController controller;
 	ScrollingCamera camera;
 	Transform player;
@@ -110,14 +110,18 @@ public class CavemanController : MonoBehaviour {
 		
 		if (movement.isMoving)
 			movement.direction = new Vector3 (h, 0, 0);
-		
+		transform.LookAt(transform.position + movement.direction, transform.forward);
 		if(controller.isGrounded){
 			// Smooth the speed based on the current target direction
 			var curSmooth = movement.speedSmoothing * Time.deltaTime;
 			// Choose target speed
 			var targetSpeed = Mathf.Min (Mathf.Abs(h), 1.0f);
 			
-			targetSpeed *= movement.walkSpeed;
+			if (Input.GetButton("Fire2") && canControl){
+				targetSpeed *= movement.runSpeed;
+			}else{
+				targetSpeed *= movement.walkSpeed;	
+			}
 			
 			movement.speed = Mathf.Lerp (movement.speed, targetSpeed, curSmooth);
 		}else{
@@ -197,14 +201,25 @@ public class CavemanController : MonoBehaviour {
 	public Vector3 GetVelocity () {
 		return movement.velocity;
 	}
+	public float GetSpeed () {
+		Debug.Log(movement.speed);
+		return movement.speed;	
+	}
+	public bool IsJumping () {
+		return jump.jumping;
+	}
 }
 
+[System.Serializable]
 public class CavemanControllerMovement {
 	public float gravity = 60.0f;
 	public float maxFallSpeed = 20.0f;
 	
 	// The speed when walking 
 	public float walkSpeed = 6.0f;
+	// The speed when running
+	public float runSpeed = 10.0f;
+	
 	public float speedSmoothing = 5.0f;
 	public float verticalSpeed = 0.0f;
 	public Vector3 direction = Vector3.zero;
@@ -220,6 +235,7 @@ public class CavemanControllerMovement {
 	public CollisionFlags collisionFlags; 
 }
 
+[System.Serializable]
 public class CavemanControllerJump{
 	public bool enabled = true;
 	public bool jumping = false;

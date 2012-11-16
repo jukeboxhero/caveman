@@ -1,15 +1,10 @@
 ﻿<Properties>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/scripts/LevelBoundaries.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="../../2DGameplayTutorialProject/Assets/Scripts/2D/LevelAttributes.js">
     <Files>
       <File FileName="../../2DGameplayTutorialProject/Assets/Scripts/2D/LevelAttributes.js" Line="28" Column="19" />
-      <File FileName="Assets/scripts/LevelBoundaries.cs" Line="11" Column="8" />
-      <File FileName="Assets/scripts/DeathTrigger.js" Line="1" Column="1" />
-      <File FileName="Assets/scripts/CavemanController.cs" Line="28" Column="19" />
-      <File FileName="Assets/scripts/camera/ScrollingCamera.cs" Line="1" Column="1" />
       <File FileName="../../2DGameplayTutorialProject/Assets/Scripts/2D/Character Controls/PlatformerController.js" Line="5" Column="42" />
-      <File FileName="Assets/scripts/SpawnPoint.js" Line="1" Column="1" />
-      <File FileName="Assets/scripts/LevelAttributes.js" Line="14" Column="17" />
+      <File FileName="../../2DGameplayTutorialProject/Assets/Scripts/2D/Camera/CameraFocus.js" Line="1" Column="1" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
