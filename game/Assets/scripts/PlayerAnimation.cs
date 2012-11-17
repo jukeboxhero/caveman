@@ -3,7 +3,7 @@ using System.Collections;
 
 public class PlayerAnimation : MonoBehaviour {
 	
-	float landBounceTime = 0.6f;
+	float landBounceTime = 6.0f;
 	private AnimationState lastJump;
 	
 	// Use this for initialization
@@ -41,5 +41,15 @@ public class PlayerAnimation : MonoBehaviour {
 			if (lastJump.time > landBounceTime)
 				lastJump.speed = 0;
 		}
+	}
+	void DidJump () {
+		// We want to play the jump animation queued,
+		// so that we can play the jump animation multiple times, overlaying each other
+		// We dont want to rewind the same animation to avoid sudden jerks!
+		lastJump = animation.CrossFadeQueued("jump", 0.3f, QueueMode.PlayNow);
+	}
+	
+	void DidLand () {
+		lastJump.speed = 1;
 	}
 }
