@@ -11,6 +11,7 @@ public class CavemanController : MonoBehaviour {
 	// Does this script currently respond to Input?
 	
 	public bool canControl = true;
+	public bool attack1 = false;
 	public Transform spawnPoint;
 	public float timeUntilRespawn = 0.5f;
 	
@@ -97,6 +98,13 @@ public class CavemanController : MonoBehaviour {
 		}	
 		
 		//attacking
+		if(Input.GetMouseButtonDown(0)){
+			Attack();
+		}
+	}
+	
+	void Attack(){
+		SendMessage ("DidAttack1", SendMessageOptions.DontRequireReceiver);
 	}
 	
 	void MotionControl(){
@@ -130,6 +138,7 @@ public class CavemanController : MonoBehaviour {
 			}
 			
 			movement.speed = Mathf.Lerp (movement.speed, targetSpeed, curSmooth);
+			movement.hangTime = 0.0f;
 		}else{
 			//in air controls
 			movement.hangTime += Time.deltaTime;
@@ -212,6 +221,9 @@ public class CavemanController : MonoBehaviour {
 	}
 	public bool IsJumping () {
 		return jump.jumping;
+	}
+	public float GetHangTime() {
+		return movement.hangTime;
 	}
 }
 

@@ -4,13 +4,13 @@ using System.Collections.Generic;
 
 public class ScrollingCamera : MonoBehaviour {
 	
-	Transform target;
+	public Transform target;
 	LevelBoundaries levelAttributes;
 	Rect levelBounds;
 	// How far back should the camera be from the target?
-	float distance = 10.0f;
+	public float distance = 10.0f;
 	// How strict should the camera follow the target?  Lower values make the camera more lazy.
-	float springiness = 4.0f;
+	public float springiness = 4.0f;
 	
 	void Alive(){
 		
@@ -58,7 +58,7 @@ public class ScrollingCamera : MonoBehaviour {
 		// the following defaults.
 		
 		// How high in world space should the camera look above the target?
-		float heightOffset = 0.0f;
+		float heightOffset = 5.0f;
 		// How much should we zoom the camera based on this target?
 		float distanceModifier = 1.0f;
 		// By default, we won't account for any target velocity in our calculations;
