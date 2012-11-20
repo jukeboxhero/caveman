@@ -1,10 +1,13 @@
 ﻿<Properties>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="../../2DGameplayTutorialProject/Assets/Scripts/2D/Character Controls/PlatformerController.js">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/scripts/CavemanController.cs">
     <Files>
-      <File FileName="../../2DGameplayTutorialProject/Assets/Scripts/2D/LevelAttributes.js" Line="28" Column="19" />
-      <File FileName="../../2DGameplayTutorialProject/Assets/Scripts/2D/Character Controls/PlatformerController.js" Line="153" Column="3" />
+      <File FileName="../../2DGameplayTutorialProject/Assets/Scripts/2D/LevelAttributes.js" Line="11" Column="1" />
+      <File FileName="../../2DGameplayTutorialProject/Assets/Scripts/2D/Character Controls/PlatformerController.js" Line="195" Column="24" />
       <File FileName="../../../Downloads/CharacterAnimation/Assets/Goober/SuperMarioController.js" Line="1" Column="1" />
+      <File FileName="Assets/scripts/CavemanController.cs" Line="113" Column="80" />
+      <File FileName="Assets/scripts/camera/ScrollingCamera.cs" Line="110" Column="84" />
+      <File FileName="Assets/scripts/LevelBoundaries.cs" Line="18" Column="8" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

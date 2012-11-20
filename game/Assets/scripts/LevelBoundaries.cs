@@ -15,7 +15,7 @@ private Color sceneViewDisplayColor= new Color (0.20f, 0.74f, 0.27f, 0.50f);
 
 static private LevelBoundaries instance;
 
-static LevelBoundaries GetInstance (){
+public static LevelBoundaries GetInstance (){
 	if (!instance) {
 		instance = FindObjectOfType(typeof(LevelBoundaries)) as LevelBoundaries;
 		if (!instance)

@@ -44,10 +44,10 @@
 	</Reference>
   </ItemGroup>
   <ItemGroup>
-     <Compile Include="Assets\scripts\CavemanController.cs" />
-     <Compile Include="Assets\scripts\LevelBoundaries.cs" />
-     <Compile Include="Assets\scripts\PlayerAnimation.cs" />
-     <Compile Include="Assets\scripts\camera\ScrollingCamera.cs" />
+     <Compile Include="Assets\Scripts\CavemanController.cs" />
+     <Compile Include="Assets\Scripts\LevelBoundaries.cs" />
+     <Compile Include="Assets\Scripts\PlayerAnimation.cs" />
+     <Compile Include="Assets\Scripts\camera\ScrollingCamera.cs" />
      <None Include="Assets\Standard Assets\Skyboxes\_skybox info.txt" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

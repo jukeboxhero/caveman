@@ -5,6 +5,8 @@ using System.Collections.Generic;
 public class ScrollingCamera : MonoBehaviour {
 	
 	Transform target;
+	LevelBoundaries levelAttributes;
+	Rect levelBounds;
 	// How far back should the camera be from the target?
 	float distance = 10.0f;
 	// How strict should the camera follow the target?  Lower values make the camera more lazy.
@@ -16,6 +18,8 @@ public class ScrollingCamera : MonoBehaviour {
 	
 	void Start () {
 		target = GameObject.Find("Player").transform;
+		levelAttributes = LevelBoundaries.GetInstance ();
+		levelBounds = levelAttributes.bounds;
 	
 	}
 	
@@ -94,6 +98,25 @@ public class ScrollingCamera : MonoBehaviour {
 		lookAhead.z = 0.0f;
 			
 		goalPosition += lookAhead;
+		
+		Vector3 clampOffset = Vector3.zero;
+		
+		var cameraPositionSave = transform.position;
+		transform.position = goalPosition;
+		
+		var targetViewportPosition = camera.WorldToViewportPoint (target.position);
+		var upperRightCameraInWorld = camera.ViewportToWorldPoint (new Vector3 (1.0f, 1.0f, targetViewportPosition.z));
+		transform.position = goalPosition;
+		var lowerLeftCameraInWorld = camera.ViewportToWorldPoint (new Vector3 (0.0f, 0.0f, targetViewportPosition.z));
+		
+		
+		clampOffset.x = Mathf.Max ((levelBounds.xMin - lowerLeftCameraInWorld.x), 0.0f);
+		clampOffset.y = Mathf.Max ((levelBounds.yMin - lowerLeftCameraInWorld.y), 0.0f);
+		
+		// Now we apply our clamping to our goalPosition.  Now our camera won't go past the right and top boundaries of the level!
+		goalPosition += clampOffset;
+		
+		transform.position = cameraPositionSave;
 		
 		return goalPosition;
 	}

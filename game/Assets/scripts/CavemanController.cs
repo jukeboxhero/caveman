@@ -77,7 +77,7 @@ public class CavemanController : MonoBehaviour {
 		
 		// Set rotation to the move direction	
 		if (movement.direction.sqrMagnitude > 0.01)
-			transform.rotation = Quaternion.Slerp (transform.rotation, Quaternion.LookRotation (movement.direction), Time.deltaTime * movement.rotationSmoothing);
+			transform.rotation = Quaternion.Slerp (transform.rotation, Quaternion.LookRotation (movement.direction), movement.rotationSmoothing);
 		
 		// Calculate the velocity based on the current and previous position.  
 		// This means our velocity will only be the amount the character actually moved as a result of collisions.
@@ -110,7 +110,13 @@ public class CavemanController : MonoBehaviour {
 		
 		if (movement.isMoving)
 			movement.direction = new Vector3 (h, 0, 0);
-		transform.LookAt(transform.position + movement.direction, transform.forward);
+		
+		//Vector3 moveDirection = Vector3.Lerp(transform.position + movement.direction, transform.forward, 1.0f);
+		//moveDirection = moveDirection.normalized;
+		//Debug.Log(moveDirection);
+		//transform.rotation = Quaternion.LookRotation(movement.direction + transform.forward);
+		//transform.LookAt(transform.position + movement.direction, transform.forward);
+		
 		if(controller.isGrounded){
 			// Smooth the speed based on the current target direction
 			var curSmooth = movement.speedSmoothing * Time.deltaTime;
@@ -202,7 +208,6 @@ public class CavemanController : MonoBehaviour {
 		return movement.velocity;
 	}
 	public float GetSpeed () {
-		Debug.Log(movement.speed);
 		return movement.speed;	
 	}
 	public bool IsJumping () {
@@ -228,7 +233,7 @@ public class CavemanControllerMovement {
 	public float hangTime = 0.0f;
 	public Vector3 inAirVelocity = Vector3.zero;
 	public float inAirControlAcceleration = 0.1f;
-	public float rotationSmoothing = 0.1f;
+	public float rotationSmoothing = 1.0f;
 	
 	public bool isMoving = false;
 	

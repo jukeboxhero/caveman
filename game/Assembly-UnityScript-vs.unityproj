@@ -44,8 +44,8 @@
 	</Reference>
   </ItemGroup>
   <ItemGroup>
-     <Compile Include="Assets\scripts\DeathTrigger.js" />
-     <Compile Include="Assets\scripts\SpawnPoint.js" />
+     <Compile Include="Assets\Scripts\DeathTrigger.js" />
+     <Compile Include="Assets\Scripts\SpawnPoint.js" />
      <None Include="Assets\Standard Assets\Skyboxes\_skybox info.txt" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
