@@ -1,12 +1,13 @@
 ﻿<Properties>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="../../../Downloads/CharacterAnimation/Assets/Robot Simple Mixing/MixingCrossfade.js">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/Level/ExitPoint.cs">
     <Files>
       <File FileName="../../../Downloads/CharacterAnimation/Assets/Goober/SuperMarioController.js" Line="1" Column="1" />
-      <File FileName="Assets/scripts/CavemanController.cs" Line="117" Column="42" />
-      <File FileName="Assets/scripts/camera/ScrollingCamera.cs" Line="19" Column="17" />
+      <File FileName="Assets/scripts/camera/ScrollingCamera.cs" Line="20" Column="44" />
       <File FileName="../../2DGameplayTutorialProject/Assets/Scripts/2D/Character Controls/PlatformerController.js" Line="164" Column="20" />
-      <File FileName="../../../Downloads/CharacterAnimation/Assets/Robot Simple Mixing/MixingCrossfade.js" Line="52" Column="63" />
+      <File FileName="../../../Downloads/2DGameplayTutorialProject 2/Assets/Scripts/2D/Spaceship/Spaceship.js" Line="1" Column="1" />
+      <File FileName="../../../Downloads/3DPlatformTutorialStart/Assets/Scripts/Misc/Respawn.js" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/Level/ExitPoint.cs" Line="17" Column="3" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

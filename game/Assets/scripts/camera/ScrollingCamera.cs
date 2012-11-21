@@ -17,7 +17,7 @@ public class ScrollingCamera : MonoBehaviour {
 	}
 	
 	void Start () {
-		target = GameObject.Find("Player").transform;
+		target = CavemanController.current_player;
 		levelAttributes = LevelBoundaries.GetInstance ();
 		levelBounds = levelAttributes.bounds;
 	
